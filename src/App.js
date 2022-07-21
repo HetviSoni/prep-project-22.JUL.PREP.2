@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import './App.css';
+import Search from './Search';
 import logo from './mlh-prep.png'
 import Autocomplete from 'react-google-autocomplete';
 
@@ -37,16 +38,10 @@ function App() {
       <div>
         <h2>Enter a city below 👇</h2>
         
-       
-      <Autocomplete
-        apiKey={process.env.REACT_APP_GOOGLE_MAPS_PLACES_API_KEY}
-        defaultValue={city}
-        onPlaceSelected={(place) => {
-          setCity(place.address_components[0].long_name);
-        }}
-      />
- 
-        <div className="Results">
+        const handleCity = (city) => setCity({city});
+
+
+                    <div className="Results">
           {!isLoaded && <h2>Loading...</h2>}
           {console.log(results)}
           {isLoaded && results && <>
