@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import './App.css';
 import logo from './mlh-prep.png'
+import Autocomplete from 'react-google-autocomplete';
+
 
 function App() {
   const [error, setError] = useState(null);
@@ -34,10 +36,16 @@ function App() {
       <img className="logo" src={logo} alt="MLH Prep Logo"></img>
       <div>
         <h2>Enter a city below 👇</h2>
-        <input
-          type="text"
-          value={city}
-          onChange={event => setCity(event.target.value)} />
+        
+       
+      <Autocomplete
+        apiKey={process.env.REACT_APP_GOOGLE_MAPS_PLACES_API_KEY}
+        defaultValue={city}
+        onPlaceSelected={(place) => {
+          setCity(place.address_components[0].long_name);
+        }}
+      />
+ 
         <div className="Results">
           {!isLoaded && <h2>Loading...</h2>}
           {console.log(results)}
@@ -51,5 +59,9 @@ function App() {
     </>
   }
 }
+
+
+
+
 
 export default App;
