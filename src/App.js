@@ -38,7 +38,9 @@ function App() {
       <div>
         <h2>Enter a city below 👇</h2>
         
-        const handleCity = (city) => setCity({city});
+        const handleCity = (city) => {
+          setCity(city);
+            };
 
 
                     <div className="Results">
