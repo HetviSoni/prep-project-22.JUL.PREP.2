@@ -18,3 +18,4 @@ export function Route({ path, component }) {
   if (path === window.location.pathname) return React.createElement(component);
   return null;
 }
+ 
