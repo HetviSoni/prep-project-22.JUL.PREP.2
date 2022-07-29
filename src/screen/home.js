@@ -25,7 +25,7 @@ function App() {
         if (result.cod !== "200") {
           setIsLoaded(false);
           console.log("hah");
-          if (result["cod"] == "404") {
+          if (result["cod"] === "404") {
             setIsLoaded(true);
             setFlag(true);
           }
